@@ -1,0 +1,15 @@
+// Allocate array of phasers
+Phaser[] ph = new Phaser[n+2]; //array of phasers
+for (int i = 0; i < ph.length; i++) ph[i] = new Phaser(1);
+
+// Main computation 
+forall ( i: [1:n-1]) {
+  for (iter: [0:nsteps-1]) {
+    newX[i] = (oldX[i-1] + oldX[i+1]) / 2;
+    ph[i].arrive();
+    
+    if (index > 1) ph[i-1].awaitAdvance(iter);
+    if (index < n-1) ph[i + 1].awaitAdvance(iter); 
+    swap pointers newX and oldX;
+  }
+}
