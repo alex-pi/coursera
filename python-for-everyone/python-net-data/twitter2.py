@@ -16,7 +16,8 @@ ctx.verify_mode = ssl.CERT_NONE
 while True:
     print('')
     acct = input('Enter Twitter Account:')
-    if (len(acct) < 1): break
+    if (len(acct) < 1): acct = 'berserkpi'
+    elif acct == 'exit': break
     url = twurl.augment(TWITTER_URL,
                         {'screen_name': acct, 'count': '5'})
     print('Retrieving', url)
@@ -35,4 +36,4 @@ while True:
             print('   * No status found')
             continue
         s = u['status']['text']
-        print('  ', s[:50])
+        print('  ', s)

@@ -12,7 +12,7 @@ print(re.findall('X-.+?:\s*([0-9.]+)', a))
 
 b = 'From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008'
 print('This extracts the email because it is greedy, it matches as many non-blank characters as it can.')
-print(re.findall('\S+@\S+', b))
+print(re.findall('\S+@(\S+)', b))
 print('This gets stephen.marquard@u only. Being non-greedy, it stops as soon as it gets the first satisfactory match.')
 print('Note that the first ? does not stop the regexp engine from getting all the chars before @')
 print('Any subset of "stephen.marquard" is NOT a match for \S+@, so the engine keeps collecting the characters from '
