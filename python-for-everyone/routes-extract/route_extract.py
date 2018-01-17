@@ -24,10 +24,10 @@ while True:
     for row in table.select('tr[class="route-row"]'):
         #print(row.prettify())
         cols = row.select('td')
-        name = cols[0].select('strong')[0].contents[0]
+        name = cols[0].select('strong')[0].string
         wall = ">".join([loc.string for loc in cols[1].select('a')])
         stars = len(cols[2].select('img'))
-        grade = cols[3].select('span[class="rateYDS"]')[0].contents[0]
+        grade = cols[3].select('span[class="rateYDS"]')[0].string
         line = "{}|{}|{}|{}|{}\n".format(name, wall, stars, grade, area)
         outcsv.write(line)
     count += 1
